@@ -12,22 +12,34 @@ _global_script_classes=[ {
 "base": "KinematicEntity",
 "class": "Dog",
 "language": "GDScript",
-"path": "res://src/Main/Dog/Dog.gd"
+"path": "res://src/entities/Dog/Dog.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "KinematicEntity",
 "language": "GDScript",
-"path": "res://src/Main/Abstract/KinematicEntity.gd"
+"path": "res://src/entities/Abstract/KinematicEntity/KinematicEntity.gd"
 }, {
 "base": "KinematicEntity",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/Main/Player/Player.gd"
+"path": "res://src/entities/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "Tooltip",
+"language": "GDScript",
+"path": "res://src/UI/Tooltip/Tooltip.gd"
+}, {
+"base": "Node",
+"class": "Traits",
+"language": "GDScript",
+"path": "res://src/entities/Abstract/Traits/Traits.gd"
 } ]
 _global_script_class_icons={
 "Dog": "",
 "KinematicEntity": "",
-"Player": ""
+"Player": "",
+"Tooltip": "",
+"Traits": ""
 }
 
 [application]
@@ -38,7 +50,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://src/Main/Global/Global.gd"
+Global="*res://src/Preloaded/Global/Global.gd"
 
 [input]
 

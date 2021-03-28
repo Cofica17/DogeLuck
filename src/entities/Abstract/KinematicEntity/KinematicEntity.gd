@@ -63,3 +63,12 @@ func _set_new_rotation_angle(new_rot:int) -> void:
 
 func _on_new_rotation_set() -> void:
 	pass
+
+
+func _on_clicked() -> void:
+	pass
+
+
+func input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		_on_clicked()
