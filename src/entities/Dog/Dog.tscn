@@ -4,7 +4,7 @@
 [ext_resource path="res://res/Dog_Black.png" type="Texture" id=2]
 [ext_resource path="res://res/dog..png" type="Texture" id=3]
 [ext_resource path="res://src/UI/Tooltip/Tooltip.gd" type="Script" id=4]
-[ext_resource path="res://src/UI/Tooltip/Placeholder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Dog/Tooltip/TraitsTooltip.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -231,7 +231,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -20 )
 frames = SubResource( 37 )
 animation = "Down"
-frame = 3
 speed_scale = 1.6
 playing = true
 

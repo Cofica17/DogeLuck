@@ -10,10 +10,14 @@ export var speed = 150
 var rotation_angle = 0
 var prevoious_rotation_angle = 0
 
+var previous_position:Vector2 = Vector2.ZERO
+
 
 func _move(dir:Vector2) -> void:
+	previous_position = position
 	move_and_slide(dir)
 	_rotate(dir)
+	
 	emit_signal("on_moved", dir)
 
 

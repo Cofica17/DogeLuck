@@ -13,6 +13,8 @@ onready var owner_node = get_node(owner_path)
 onready var offset:Vector2 = Vector2(offset_x, offset_y)
 onready var extents
 
+
+var _container:Node
 var _visuals:Control
 var _timer:Timer
 
@@ -21,6 +23,8 @@ func _ready():
 	_visuals = visuals.instance()
 	add_child(_visuals)
 	_visuals.hide()
+	
+	_container = _visuals.get_node("Container")
 	
 	extents = _visuals.rect_size
 	
@@ -42,6 +46,14 @@ func _process(delta):
 			final_y -= extents.y
 		
 		_visuals.rect_position = Vector2(final_x, final_y)
+
+
+func set_text(texts:Dictionary) -> void:
+	for text in texts:
+		print(text)
+		var child:Label = _container.find_node(text)
+		if child:
+			child.text = texts[text] 
 
 
 func _get_screen_position() -> Vector2:

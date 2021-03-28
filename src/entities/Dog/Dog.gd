@@ -3,6 +3,12 @@ class_name Dog
 
 var traits:Traits
 
+onready var tooltip = get_node("Tooltip")
+
+
+func _ready():
+	pass
+
 
 func _on_target_moved(dir:Vector2) -> void:
 	_move(dir)
@@ -17,7 +23,15 @@ func _on_new_rotation_set() -> void:
 
 func set_traits(new_traits:Traits) -> void:
 	traits = new_traits
+	set_tooltip_text()
 
 
-func _on_clicked() -> void:
-	print("dog clicked")
+func set_tooltip_text() -> void:
+	var texts := {}
+	var counter := 1
+	
+	for trait in traits.get_traits():
+		texts["Trait"+str(counter)] = trait
+		counter += 1
+	
+	tooltip.set_text(texts)

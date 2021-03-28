@@ -9,6 +9,14 @@ func _ready():
 	
 	#DEBUG
 	_add_start_dog()
+	
+	#DEBUG ADDING ANOTEHR DOG
+#	var _Dog = load("res://src/entities/Dog/Dog.tscn")
+#	var dog = _Dog.instance()
+#	add_child(dog)
+#	var traits = Traits.new()
+#	traits.set_traits(["Stuborn", "Playful22", "Energetic"])
+#	dog.set_traits(traits)
 
 
 func _add_start_dog() -> void:
