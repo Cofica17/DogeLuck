@@ -226,11 +226,13 @@ extents = Vector2( 7.01481, 9.8606 )
 scale = Vector2( 1.5, 1.5 )
 input_pickable = true
 script = ExtResource( 1 )
+speed = 150
 
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -20 )
 frames = SubResource( 37 )
 animation = "Down"
+frame = 2
 speed_scale = 1.6
 playing = true
 

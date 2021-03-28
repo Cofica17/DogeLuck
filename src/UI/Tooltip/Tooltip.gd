@@ -50,7 +50,6 @@ func _process(delta):
 
 func set_text(texts:Dictionary) -> void:
 	for text in texts:
-		print(text)
 		var child:Label = _container.find_node(text)
 		if child:
 			child.text = texts[text] 

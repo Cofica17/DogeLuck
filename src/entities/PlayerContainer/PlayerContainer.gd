@@ -30,7 +30,6 @@ func _add_start_dog() -> void:
 func add_dog(_dog:KinematicEntity) -> void:
 	dog = _dog
 	add_child(_dog)
-	player.connect("on_moved", dog, "_on_target_moved")
 	_position_dog_beside_player()
 
 
