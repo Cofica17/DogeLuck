@@ -1,5 +1,124 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/entities/Abstract/Activity/Activity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/road/Road_02_Tile_01.png" type="Texture" id=2]
+[ext_resource path="res://res/road/Road_02_Tile_02.png" type="Texture" id=3]
+[ext_resource path="res://res/road/Road_01_Tile_07.png" type="Texture" id=4]
+[ext_resource path="res://src/Main/Activities/RacingActivity/RacingActivity.gd" type="Script" id=5]
 
 [node name="RacingActivity" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="Road" type="Node" parent="." index="0"]
+
+[node name="Road_01_Tile_10" type="Sprite" parent="Road" index="0"]
+position = Vector2( 815.389, 73.3164 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_11" type="Sprite" parent="Road" index="1"]
+position = Vector2( 661.05, 73.8776 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_12" type="Sprite" parent="Road" index="2"]
+position = Vector2( 507.834, 74.4388 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_13" type="Sprite" parent="Road" index="3"]
+position = Vector2( 353.496, 73.8776 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_14" type="Sprite" parent="Road" index="4"]
+position = Vector2( 201.606, 73.8776 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_19" type="Sprite" parent="Road" index="5"]
+position = Vector2( 815.873, 482.371 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_20" type="Sprite" parent="Road" index="6"]
+position = Vector2( 661.535, 482.932 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_21" type="Sprite" parent="Road" index="7"]
+position = Vector2( 508.319, 483.494 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_22" type="Sprite" parent="Road" index="8"]
+position = Vector2( 353.981, 482.932 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_23" type="Sprite" parent="Road" index="9"]
+position = Vector2( 200.969, 482.932 )
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_15" type="Sprite" parent="Road" index="10"]
+position = Vector2( 62.5162, 202.38 )
+rotation = -1.5708
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_16" type="Sprite" parent="Road" index="11"]
+position = Vector2( 62.5162, 354.343 )
+rotation = -1.5708
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_17" type="Sprite" parent="Road" index="12"]
+position = Vector2( 951.595, 356.106 )
+rotation = -1.5708
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_01_Tile_18" type="Sprite" parent="Road" index="13"]
+position = Vector2( 951.726, 202.718 )
+rotation = -1.5708
+scale = Vector2( 0.603979, 0.166042 )
+texture = ExtResource( 4 )
+
+[node name="Road_02_Tile_01" type="Sprite" parent="Road" index="14"]
+position = Vector2( 67.6672, 481.3 )
+scale = Vector2( 0.189267, 0.168994 )
+texture = ExtResource( 2 )
+
+[node name="Road_02_Tile_02" type="Sprite" parent="Road" index="15"]
+position = Vector2( 69.2547, 74.4414 )
+scale = Vector2( 0.189267, 0.168994 )
+texture = ExtResource( 3 )
+
+[node name="Road_02_Tile_03" type="Sprite" parent="Road" index="16"]
+position = Vector2( 945.27, 482.445 )
+scale = Vector2( 0.189267, 0.168994 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="Road_02_Tile_04" type="Sprite" parent="Road" index="17"]
+position = Vector2( 947.869, 75.0216 )
+scale = Vector2( 0.189267, 0.168994 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="RacingStartPoints" type="Node" parent="." index="2"]
+
+[node name="First" type="Node2D" parent="RacingStartPoints" index="0"]
+position = Vector2( 518.209, 47.1686 )
+
+[node name="Second" type="Node2D" parent="RacingStartPoints" index="1"]
+position = Vector2( 517.612, 67.1687 )
+
+[node name="Third" type="Node2D" parent="RacingStartPoints" index="2"]
+position = Vector2( 517.282, 88.199 )
+
+[node name="Fourth" type="Node2D" parent="RacingStartPoints" index="3"]
+position = Vector2( 517.282, 107.799 )
+
+[node name="DogsContainer" type="Node" parent="." index="3"]

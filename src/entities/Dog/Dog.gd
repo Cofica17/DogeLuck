@@ -10,20 +10,16 @@ onready var tooltip = get_node("Tooltip")
 
 var is_moving = false
 
+var move_towards_player := true
+
 
 func _ready():
 	pass
 
 
 func _physics_process(delta):
-	var distance_to_player = _get_distance_to_player()
-	if distance_to_player >= distance_unil_movement or is_moving:
+	if move_towards_player:
 		_move_towards_player()
-		is_moving = true
-	
-	if distance_to_player <= stopping_distance:
-		_set_animation(Vector2.ZERO)
-		is_moving = false
 
 
 func set_traits(new_traits:Traits) -> void:
@@ -43,10 +39,18 @@ func set_tooltip_text() -> void:
 
 
 func _move_towards_player() -> void:
-	var dir : Vector2 = Global.player.position - position
-	var move = dir.normalized() * speed
-	_move(move)
-	_set_animation(dir)
+	var distance_to_player = _get_distance_to_player()
+	if distance_to_player >= distance_unil_movement or is_moving:
+		var dir : Vector2 = Global.player.position - position
+		var move = dir.normalized() * speed
+		_move(move)
+		_set_animation(dir)
+		is_moving = true
+	
+	if distance_to_player <= stopping_distance:
+		_set_animation(Vector2.ZERO)
+		is_moving = false
+
 
 
 func _get_distance_to_player() -> float:
