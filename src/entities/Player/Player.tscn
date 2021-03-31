@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://res/knight iso char.png" type="Texture" id=1]
+[ext_resource path="res://res/rest/knight iso char.png" type="Texture" id=1]
 [ext_resource path="res://src/entities/Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -36,72 +36,72 @@ region = Rect2( 252, 168, 84, 84 )
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 84, 84 )
+region = Rect2( 84, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 84, 0, 84, 84 )
+region = Rect2( 168, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 168, 0, 84, 84 )
+region = Rect2( 252, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 252, 0, 84, 84 )
+region = Rect2( 336, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 84, 84, 84, 84 )
+region = Rect2( 420, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 168, 84, 84, 84 )
+region = Rect2( 336, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 252, 84, 84, 84 )
+region = Rect2( 420, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 336, 84, 84, 84 )
+region = Rect2( 504, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 420, 84, 84, 84 )
+region = Rect2( 588, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 336, 0, 84, 84 )
+region = Rect2( 0, 84, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 420, 0, 84, 84 )
+region = Rect2( 0, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 504, 0, 84, 84 )
+region = Rect2( 84, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 588, 0, 84, 84 )
+region = Rect2( 168, 0, 84, 84 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 84, 84, 84 )
+region = Rect2( 252, 0, 84, 84 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
@@ -115,25 +115,25 @@ animations = [ {
 "name": "Side",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "Up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "Down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=22]
 radius = 16.7998
-height = 55.0272
+height = 17.5323
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -142,9 +142,8 @@ script = ExtResource( 2 )
 position = Vector2( 0, -40 )
 frames = SubResource( 21 )
 animation = "Idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -40.082 )
+position = Vector2( -0.561234, -24.9288 )
 shape = SubResource( 22 )

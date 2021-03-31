@@ -1,0 +1,26 @@
+
+# Godot-specific ignores
+.import/
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+mono_crash.*.json
+
+# System/tool-specific ignores
+.directory
+*~
+
+# VS Code
+/.vscode
+/.vs
+
+# JetBrains
+/.idea
+*.iml
+
+# Project
+/working
+/build

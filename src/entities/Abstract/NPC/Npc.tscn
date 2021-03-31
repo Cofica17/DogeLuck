@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/sprite_frames/RacingNpcSpriteFrames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://src/entities/Abstract/NPC/Npc.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.7998
+height = 0.982765
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 72.4706
+
+[node name="NPC" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="NpcInfoText" type="Label" parent="."]
+visible = false
+margin_left = -49.1081
+margin_top = -93.243
+margin_right = 47.8919
+margin_bottom = -79.243
+text = "Press E to start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -43.814 )
+scale = Vector2( 0.128682, 0.12495 )
+frames = ExtResource( 1 )
+animation = "Idle"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -17.39 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1.02394, -16.5604 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

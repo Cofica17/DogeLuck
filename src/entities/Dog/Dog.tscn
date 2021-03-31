@@ -1,8 +1,8 @@
 [gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://src/entities/Dog/Dog.gd" type="Script" id=1]
-[ext_resource path="res://res/Dog_Black.png" type="Texture" id=2]
-[ext_resource path="res://res/dog..png" type="Texture" id=3]
+[ext_resource path="res://res/rest/Dog_Black.png" type="Texture" id=2]
+[ext_resource path="res://res/rest/dog..png" type="Texture" id=3]
 [ext_resource path="res://src/UI/Tooltip/Tooltip.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Dog/Tooltip/TraitsTooltip.tscn" type="PackedScene" id=5]
 
@@ -94,62 +94,62 @@ region = Rect2( 96, 32, 32, 32 )
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 128, 32, 32 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 32, 128, 32, 32 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 64, 128, 32, 32 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 96, 128, 32, 32 )
+region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 96, 64, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 0, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 32, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 64, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 96, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 4
@@ -200,17 +200,17 @@ animations = [ {
 }, {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Up",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
-"name": "Up",
+"name": "Down",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
-"name": "Down",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
@@ -228,11 +228,21 @@ input_pickable = true
 script = ExtResource( 1 )
 speed = 150
 
+[node name="Label" type="Label" parent="."]
+margin_left = -12.9369
+margin_top = -40.2973
+margin_right = 13.0631
+margin_bottom = -26.2973
+text = "Loki"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -20 )
 frames = SubResource( 37 )
 animation = "Down"
-frame = 2
+frame = 3
 speed_scale = 1.6
 playing = true
 
