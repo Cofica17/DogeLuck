@@ -147,3 +147,6 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.561234, -24.9288 )
 shape = SubResource( 22 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
