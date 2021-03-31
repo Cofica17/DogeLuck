@@ -6,7 +6,7 @@ var player : Player
 
 func _ready():
 	player = find_node("Player")
-	
+	Global.player = player
 	#DEBUG
 	_add_start_dog()
 	
