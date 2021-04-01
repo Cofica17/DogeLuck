@@ -1,124 +1,141 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/entities/Abstract/Activity/Activity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/road/Road_02_Tile_01.png" type="Texture" id=2]
 [ext_resource path="res://res/road/Road_02_Tile_02.png" type="Texture" id=3]
 [ext_resource path="res://res/road/Road_01_Tile_07.png" type="Texture" id=4]
 [ext_resource path="res://src/Main/Activities/RacingActivity/RacingActivity.gd" type="Script" id=5]
+[ext_resource path="res://src/Main/Activities/RacingActivity/PathFollow/PathFollow.gd" type="Script" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 486.143, 76.8092, 0, 0, 0, 0, 330.236, 80.3728, 0, 0, 0, 0, 106.421, 84.3032, 0, 0, 0, 0, 73.0501, 102.991, 0, 0, 0, 0, 74.385, 125.016, 0, 0, 0, 0, 65.3351, 210.59, 0, 0, 0, 0, 80.4712, 308.134, 0, 0, 0, 0, 78.7894, 389.701, 0, 0, 0, 0, 89.7211, 438.473, 0, 0, 0, 0, 119.152, 447.723, 0, 0, 0, 0, 147.743, 449.405, 0, 0, 0, 0, 235.196, 453.609, 0, 0, 0, 0, 373.103, 478.836, 0, 0, 0, 0, 454.67, 462.018, 0, 0, 0, 0, 560.623, 459.495, 0, 0, 0, 0, 666.576, 457.813, 0, 0, 0, 0, 775.893, 456.973, 0, 0, 0, 0, 875.118, 455.291, 0, 0, 0, 0, 913.8, 442.677, 0, 0, 0, 0, 926.413, 409.042, 0, 0, 0, 0, 928.936, 339.247, 0, 0, 0, 0, 948.276, 263.566, 0, 0, 0, 0, 945.754, 197.136, 0, 0, 0, 0, 937.345, 150.886, 0, 0, 0, 0, 910.436, 101.273, 0, 0, 0, 0, 776.733, 97.9098, 0, 0, 0, 0, 668.258, 71.0011, 0, 0, 0, 0, 486.143, 76.8092 )
+}
 
 [node name="RacingActivity" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 
 [node name="Road" type="Node" parent="." index="0"]
 
-[node name="Road_01_Tile_10" type="Sprite" parent="Road" index="0"]
+[node name="Sprites" type="Node" parent="Road" index="0"]
+
+[node name="Road_01_Tile_10" type="Sprite" parent="Road/Sprites" index="0"]
 position = Vector2( 815.389, 73.3164 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_11" type="Sprite" parent="Road" index="1"]
+[node name="Road_01_Tile_11" type="Sprite" parent="Road/Sprites" index="1"]
 position = Vector2( 661.05, 73.8776 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_12" type="Sprite" parent="Road" index="2"]
-position = Vector2( 507.834, 74.4388 )
+[node name="Road_01_Tile_12" type="Sprite" parent="Road/Sprites" index="2"]
+position = Vector2( 508.725, 74.4388 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_13" type="Sprite" parent="Road" index="3"]
+[node name="Road_01_Tile_13" type="Sprite" parent="Road/Sprites" index="3"]
 position = Vector2( 353.496, 73.8776 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_14" type="Sprite" parent="Road" index="4"]
+[node name="Road_01_Tile_14" type="Sprite" parent="Road/Sprites" index="4"]
 position = Vector2( 201.606, 73.8776 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_19" type="Sprite" parent="Road" index="5"]
+[node name="Road_01_Tile_19" type="Sprite" parent="Road/Sprites" index="5"]
 position = Vector2( 815.873, 482.371 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_20" type="Sprite" parent="Road" index="6"]
+[node name="Road_01_Tile_20" type="Sprite" parent="Road/Sprites" index="6"]
 position = Vector2( 661.535, 482.932 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_21" type="Sprite" parent="Road" index="7"]
+[node name="Road_01_Tile_21" type="Sprite" parent="Road/Sprites" index="7"]
 position = Vector2( 508.319, 483.494 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_22" type="Sprite" parent="Road" index="8"]
+[node name="Road_01_Tile_22" type="Sprite" parent="Road/Sprites" index="8"]
 position = Vector2( 353.981, 482.932 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_23" type="Sprite" parent="Road" index="9"]
+[node name="Road_01_Tile_23" type="Sprite" parent="Road/Sprites" index="9"]
 position = Vector2( 200.969, 482.932 )
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_15" type="Sprite" parent="Road" index="10"]
+[node name="Road_01_Tile_15" type="Sprite" parent="Road/Sprites" index="10"]
 position = Vector2( 62.5162, 202.38 )
 rotation = -1.5708
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_16" type="Sprite" parent="Road" index="11"]
+[node name="Road_01_Tile_16" type="Sprite" parent="Road/Sprites" index="11"]
 position = Vector2( 62.5162, 354.343 )
 rotation = -1.5708
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_17" type="Sprite" parent="Road" index="12"]
+[node name="Road_01_Tile_17" type="Sprite" parent="Road/Sprites" index="12"]
 position = Vector2( 951.595, 356.106 )
 rotation = -1.5708
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_01_Tile_18" type="Sprite" parent="Road" index="13"]
+[node name="Road_01_Tile_18" type="Sprite" parent="Road/Sprites" index="13"]
 position = Vector2( 951.726, 202.718 )
 rotation = -1.5708
 scale = Vector2( 0.603979, 0.166042 )
 texture = ExtResource( 4 )
 
-[node name="Road_02_Tile_01" type="Sprite" parent="Road" index="14"]
+[node name="Road_02_Tile_01" type="Sprite" parent="Road/Sprites" index="14"]
 position = Vector2( 67.6672, 481.3 )
 scale = Vector2( 0.189267, 0.168994 )
 texture = ExtResource( 2 )
 
-[node name="Road_02_Tile_02" type="Sprite" parent="Road" index="15"]
+[node name="Road_02_Tile_02" type="Sprite" parent="Road/Sprites" index="15"]
 position = Vector2( 69.2547, 74.4414 )
 scale = Vector2( 0.189267, 0.168994 )
 texture = ExtResource( 3 )
 
-[node name="Road_02_Tile_03" type="Sprite" parent="Road" index="16"]
+[node name="Road_02_Tile_03" type="Sprite" parent="Road/Sprites" index="16"]
 position = Vector2( 945.27, 482.445 )
 scale = Vector2( 0.189267, 0.168994 )
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Road_02_Tile_04" type="Sprite" parent="Road" index="17"]
+[node name="Road_02_Tile_04" type="Sprite" parent="Road/Sprites" index="17"]
 position = Vector2( 947.869, 75.0216 )
 scale = Vector2( 0.189267, 0.168994 )
 texture = ExtResource( 3 )
 flip_h = true
 
-[node name="RacingStartPoints" type="Node" parent="." index="2"]
+[node name="RacingStartPoints" type="Node" parent="Road" index="1"]
 
-[node name="First" type="Node2D" parent="RacingStartPoints" index="0"]
+[node name="First" type="Node2D" parent="Road/RacingStartPoints" index="0"]
 position = Vector2( 518.209, 47.1686 )
 
-[node name="Second" type="Node2D" parent="RacingStartPoints" index="1"]
+[node name="Path2D" type="Path2D" parent="Road/RacingStartPoints/First" index="0"]
+position = Vector2( -518.209, -47.1686 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Road/RacingStartPoints/First/Path2D" index="0"]
+position = Vector2( 486.143, 76.8092 )
+rotate = false
+script = ExtResource( 6 )
+
+[node name="Second" type="Node2D" parent="Road/RacingStartPoints" index="1"]
 position = Vector2( 517.612, 67.1687 )
 
-[node name="Third" type="Node2D" parent="RacingStartPoints" index="2"]
+[node name="Third" type="Node2D" parent="Road/RacingStartPoints" index="2"]
 position = Vector2( 517.282, 88.199 )
 
-[node name="Fourth" type="Node2D" parent="RacingStartPoints" index="3"]
+[node name="Fourth" type="Node2D" parent="Road/RacingStartPoints" index="3"]
 position = Vector2( 517.282, 107.799 )
 
-[node name="DogsContainer" type="Node" parent="." index="3"]
+[node name="DogsContainer" type="Node" parent="." index="2"]
