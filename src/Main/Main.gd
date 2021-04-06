@@ -14,9 +14,9 @@ func _ready():
 
 
 func _add_start_dog() -> void:
-	var _Dog = load("res://src/entities/Dog/Dog.tscn")
-	var dog = _Dog.instance()
+	var dog = Scenes.get_dog_instance()
 	add_dog(dog)
+	
 	var traits = Traits.new()
 	traits.set_traits(["Stuborn", "Playful", "Energetic"])
 	dog.set_traits(traits)

@@ -30,47 +30,47 @@ var _platform_service: EnjinPlatformService setget ,platform_service
 var _app_service: EnjinAppService setget ,app_service
 
 func _init(base_url: String = EnjinHosts.KOVAN, port: int = 443, use_ssl: bool = true, verify_host: bool = true):
-    _base_url = base_url
-    _http = EnjinHttp.new(_base_url, port, use_ssl, verify_host)
-    _state = TrustedPlatformState.new()
+	_base_url = base_url
+	_http = EnjinHttp.new(_base_url, port, use_ssl, verify_host)
+	_state = TrustedPlatformState.new()
 
-    _middleware = TrustedPlatformMiddleware.new(_http, _state)
-    _auth_service = EnjinAuthService.new(_state, _middleware)
-    _user_service = EnjinUserService.new(_middleware)
-    _identity_service = EnjinIdentityService.new(_middleware)
-    _balance_service = EnjinBalanceService.new(_middleware)
-    _wallet_service = EnjinWalletService.new(_middleware)
-    _token_service = EnjinTokenService.new(_middleware)
-    _request_service = EnjinRequestService.new(_middleware)
-    _platform_service = EnjinPlatformService.new(_middleware)
-    _app_service = EnjinAppService.new(_middleware)
+	_middleware = TrustedPlatformMiddleware.new(_http, _state)
+	_auth_service = EnjinAuthService.new(_state, _middleware)
+	_user_service = EnjinUserService.new(_middleware)
+	_identity_service = EnjinIdentityService.new(_middleware)
+	_balance_service = EnjinBalanceService.new(_middleware)
+	_wallet_service = EnjinWalletService.new(_middleware)
+	_token_service = EnjinTokenService.new(_middleware)
+	_request_service = EnjinRequestService.new(_middleware)
+	_platform_service = EnjinPlatformService.new(_middleware)
+	_app_service = EnjinAppService.new(_middleware)
 
 func get_state() -> TrustedPlatformState:
-    return _state
+	return _state
 
 func auth_service() -> EnjinAuthService:
-    return _auth_service
+	return _auth_service
 
 func user_service() -> EnjinUserService:
-    return _user_service
+	return _user_service
 
 func identity_service() -> EnjinIdentityService:
-    return _identity_service
+	return _identity_service
 
 func balance_service() -> EnjinBalanceService:
-    return _balance_service
+	return _balance_service
 
 func wallet_service() -> EnjinWalletService:
-    return _wallet_service
+	return _wallet_service
 
 func token_service() -> EnjinTokenService:
-    return _token_service
+	return _token_service
 
 func request_service() -> EnjinRequestService:
-    return _request_service
+	return _request_service
 
 func platform_service() -> EnjinPlatformService:
-    return _platform_service
+	return _platform_service
 
 func app_service() -> EnjinAppService:
-    return _app_service
+	return _app_service

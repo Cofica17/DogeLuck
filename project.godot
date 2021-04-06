@@ -256,6 +256,7 @@ config/icon="res://icon.png"
 
 Global="*res://src/Preloaded/Global/Global.gd"
 Scenes="*res://src/Preloaded/Scenes/Scenes.gd"
+PlatformServer="*res://src/Preloaded/PlatformServer/PlatformServer.gd"
 
 [display]
 

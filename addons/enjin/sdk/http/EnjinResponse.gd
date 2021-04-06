@@ -9,25 +9,25 @@ var _headers: Dictionary setget ,get_headers
 var _body: String setget ,get_body
 
 func _init(request: EnjinCall, code: int, headers: Dictionary, body: String):
-    _request = request
-    _code = code
-    _headers = headers
-    _body = body
+	_request = request
+	_code = code
+	_headers = headers
+	_body = body
 
 func get_call() -> EnjinCall:
-    return _request
+	return _request
 
 func get_code() -> int:
-    return _code
+	return _code
 
 func get_headers() -> Dictionary:
-    return _headers
+	return _headers
 
 func get_body() -> String:
-    return _body
+	return _body
 
 func is_success() -> bool:
-    return _code >= 200 and _code < 300
+	return _code >= 200 and _code < 300
 
 func has_body() -> bool:
-    return _body.length() > 0
+	return _body.length() > 0

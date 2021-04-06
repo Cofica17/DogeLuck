@@ -44,13 +44,12 @@ func _move_towards_player() -> void:
 		var dir : Vector2 = Global.player.position - position
 		var move = dir.normalized() * speed
 		_move(move)
-		_set_animation(dir)
+		set_animation(dir)
 		is_moving = true
 	
 	if distance_to_player <= stopping_distance:
-		_set_animation(Vector2.ZERO)
+		set_animation(Vector2.ZERO)
 		is_moving = false
-
 
 
 func _get_distance_to_player() -> float:

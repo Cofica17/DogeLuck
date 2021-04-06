@@ -11,4 +11,4 @@ func _physics_process(delta):
 	var move = dir.normalized() * speed
 	_move(move)
 	
-	_set_animation(dir)
+	set_animation(dir)

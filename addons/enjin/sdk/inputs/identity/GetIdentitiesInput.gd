@@ -6,16 +6,16 @@ const PaginatedInput = preload("res://addons/enjin/sdk/inputs/PaginatedInput.gd"
 var paginated_i: PaginatedInput
 
 func _init():
-    paginated_i = PaginatedInput.new(vars)
+	paginated_i = PaginatedInput.new(vars)
 
 func app_id(appId: int) -> GetIdentitiesInput:
-    vars.appId = appId
-    return self
+	vars.appId = appId
+	return self
 
 func eth_addr(ethAddr: String) -> GetIdentitiesInput:
-    vars.ethAddr = ethAddr
-    return self
+	vars.ethAddr = ethAddr
+	return self
 
 func linking_code(linkingCode: String) -> GetIdentitiesInput:
-    vars.linkingCode = linkingCode
-    return self
+	vars.linkingCode = linkingCode
+	return self

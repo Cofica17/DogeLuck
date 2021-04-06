@@ -7,12 +7,23 @@ onready var body : AnimatedSprite = get_node("Body")
 
 export var speed = 180
 
+var previous_global_position:Vector2
+
 
 func _move(dir:Vector2) -> void:
+	set_previous_global_position()
 	move_and_slide(dir)
 
 
-func _set_animation(dir:Vector2) -> void:
+func get_direction() -> Vector2:
+	return global_position - previous_global_position
+
+
+func set_previous_global_position(new_pos:Vector2=global_position) -> void:
+	previous_global_position = new_pos
+
+
+func set_animation(dir:Vector2) -> void:
 	if not body:
 		return
 	

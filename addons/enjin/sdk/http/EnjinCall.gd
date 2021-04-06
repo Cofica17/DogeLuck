@@ -10,32 +10,32 @@ var _content_type = EnjinContentTypes.TEXT_PLAIN_ASCII
 var _headers = []
 
 func set_method(method: int):
-    _method = method
+	_method = method
 
 func get_method() -> int:
-    return _method
+	return _method
 
 func set_endpoint(endpoint: String):
-    _endpoint = endpoint
+	_endpoint = endpoint
 
 func get_endpoint() -> String:
-    return _endpoint
+	return _endpoint
 
 func set_body(body: String):
-    _body = body
+	_body = body
 
 func get_body() -> String:
-    return _body
+	return _body
 
 func set_content_type(content_type: String):
-    _content_type = content_type
+	_content_type = content_type
 
 func add_header(key: String, value: String):
-    _headers.push_back("%s: %s" % [key, value])
+	_headers.push_back("%s: %s" % [key, value])
 
 func get_headers() -> Array:
-    var headers = _headers.duplicate()
-    headers.push_back("Content-Type: %s" % _content_type)
-    headers.push_back("Content-Length: %s" % str(_body.length()))
-    headers.push_back("User-Agent: Enjin Godot SDK v%s" % TrustedPlatformConstants.VERSION)
-    return headers
+	var headers = _headers.duplicate()
+	headers.push_back("Content-Type: %s" % _content_type)
+	headers.push_back("Content-Length: %s" % str(_body.length()))
+	headers.push_back("User-Agent: Enjin Godot SDK v%s" % TrustedPlatformConstants.VERSION)
+	return headers

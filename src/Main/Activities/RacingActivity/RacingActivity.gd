@@ -6,12 +6,13 @@ onready var third_starting_position = get_node("Road/RacingStartPoints/Third")
 onready var fourth_starting_position = get_node("Road/RacingStartPoints/Fourth")
 
 onready var first_dog_container = get_node("Road/RacingStartPoints/First/Path2D/PathFollow2D")
+onready var second_dog_container = get_node("Road/RacingStartPoints/Second/Path2D/PathFollow2D")
 
 
 func _ready():
 	#DEBUG
 	_add_start_dog(first_starting_position.global_position, first_dog_container)
-	#_add_start_dog(second_starting_position.position)
+	_add_start_dog(second_starting_position.global_position, second_dog_container)
 
 
 func _add_start_dog(pos, parent) -> void:

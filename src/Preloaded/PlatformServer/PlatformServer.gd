@@ -8,8 +8,8 @@ const DEFAULT_SETTINGS: Dictionary = {
 		"id": 0
 	},
 	"app": {
-		"id": 0,
-		"secret": ""
+		"id": 3857,
+		"secret": "5kL5Wq5PZwYxxBz9XhxpPABSmgYqJcyeLASfniJd"
 	},
 	"tokens": {
 		"coin": {
@@ -53,23 +53,21 @@ func _init():
 	_server.connect("data_received", self, "_data_received")
 
 func _ready():
-	print("***********************")
-	print(_settings._data)
-	print("***********************")
 	# Prevents web socket from being paused
 	self.set_pause_mode(2)
 
 	# Check if the settings have been configured.
-	if !_settings_valid():
-		# If not then quit.
-		get_tree().quit()
+#	if !_settings_valid():
+#		# If not then quit.
+#		get_tree().quit()
 
 	var settings = _settings.data()
-
+	print(settings)
 	# Start the web socket server on the configured port.
 	_server.listen(settings.connection.port)
 	# Aunthenticate the cloud client using the app settings.
 	_tp_client.auth_service().auth_app(settings.app.id, settings.app.secret, { "callback": _auth_app_callback })
+	
 
 func _exit_tree():
 	# Stop the web socket server when this node is removed from the tree.
@@ -176,6 +174,9 @@ func _auth_app(udata: Dictionary):
 	# If the player connected before the app authenticated auth the player.
 	if _client_peer_id:
 		auth_player(_client_name, _client_peer_id)
+	
+	print("App auth")
+	auth_player("Cofi", 1)
 
 func _auth_player(udata: Dictionary):
 	var gql = udata.gql
@@ -189,6 +190,7 @@ func _auth_player(udata: Dictionary):
 	elif gql.has_result():
 		# Send the player's session data.
 		send_player_session(gql.get_result(), udata.peer_id)
+		print("Player auth successful")
 
 func _create_player(udata: Dictionary):
 	var gql = udata.gql
