@@ -4,9 +4,7 @@ onready var RacingActivityScene = preload("res://src/Main/Activities/RacingActiv
 
 onready var DogScene = preload("res://src/entities/Dog/Dog.tscn")
 
-
-func _ready():
-	pass
+onready var MainScene = preload("res://src/Main/Main.tscn")
 
 
 func get_dog_instance() -> Dog:
@@ -16,3 +14,6 @@ func get_dog_instance() -> Dog:
 func start_racing_activity_scene() -> void:
 	get_tree().change_scene(RacingActivityScene.resource_path)
 
+
+func start_main_menu_scene() -> void:
+	get_tree().change_scene(MainScene.resource_path)
