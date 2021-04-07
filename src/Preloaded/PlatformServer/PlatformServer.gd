@@ -203,11 +203,15 @@ func _get_player_identities(udata:Dictionary) -> void:
 	
 	var user: Dictionary = gql.get_result()
 	var identity: Dictionary = user.identities[0]
+	print("Got player identities: ", identity)
 	var text_code = identity.linkingCode
 	print("Got app link code: ", text_code)
 	emit_signal("text_code_fetched", text_code)
 	var qr_code_url = identity.linkingCodeQr
-	download_and_show_qr_code(qr_code_url)
+	
+	#If there is nor qr code url means the user already has linked wallet
+	if qr_code_url and not qr_code_url.empty():
+		download_and_show_qr_code(qr_code_url)
 
 
 func download_and_show_qr_code(url: String):
