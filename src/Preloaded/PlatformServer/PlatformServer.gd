@@ -41,6 +41,7 @@ var _auth_player_callback: EnjinCallback
 var _create_player_callback: EnjinCallback
 var _send_tokens_callback: EnjinCallback
 var _get_user_identities_callback: EnjinCallback
+var _unlink_player_callback: EnjinCallback
 
 func _init():
 	_settings = Settings.new(DEFAULT_SETTINGS, SETTINGS_FILE_NAME)
@@ -51,6 +52,7 @@ func _init():
 	_create_player_callback = EnjinCallback.new(self, "_create_player")
 	_send_tokens_callback = EnjinCallback.new(self, "_send_tokens")
 	_get_user_identities_callback = EnjinCallback.new(self, "_get_player_identities")
+	_unlink_player_callback = EnjinCallback.new(self, "_unlink_player")
 
 	_settings.save()
 	_settings.load()
@@ -67,7 +69,7 @@ func _ready():
 #		get_tree().quit()
 
 	var settings = _settings.data()
-	print(settings)
+	
 	# Start the web socket server on the configured port.
 	_server.listen(settings.connection.port)
 	# Aunthenticate the cloud client using the app settings.
@@ -150,6 +152,25 @@ func create_player(name, peer_id):
 	_tp_client.user_service().create_user(name, udata)
 
 
+func unlink_player():
+	var input = UnlinkIdentityInput.new()
+	input.id(Global.player_identity.id)
+	var udata = { "callback": _unlink_player_callback }
+	input.identity_i.with_linking_code(true) # Requests new QR code url.
+	input.identity_i.with_linking_code_qr(true) # Requests new QR code url.
+	_tp_client.wallet_service().unlink_identity(input, udata)
+
+
+func _unlink_player(udata: Dictionary):
+	var gql: EnjinGraphqlResponse = udata.gql
+	if gql.has_errors():
+		print("errors")
+	elif gql.has_result():
+		var result: Dictionary = gql.get_result()
+		# Gets the new QR code image
+		download_and_show_qr_code(result.linkingCodeQr)
+
+
 func send_tokens(token: String, amount: int, recipient_wallet: String):
 	var settings = _settings.data()
 	var input = CreateRequestInput.new()
@@ -184,8 +205,8 @@ func send_player_session(session, peer_id):
 
 
 func get_user_identities() -> void:
-	var input:GetUserInput = GetUserInput.new().name("Cofi")
-	input.me(true)
+	print("GLOBAL NAME: ", Global.player_name)
+	var input:GetUserInput = GetUserInput.new().name(Global.player_name)
 	input.user_i.with_identities(true)
 	input.identity_i.with_linking_code(true)
 	input.identity_i.with_linking_code_qr(true)
@@ -203,10 +224,14 @@ func _get_player_identities(udata:Dictionary) -> void:
 	
 	var user: Dictionary = gql.get_result()
 	var identity: Dictionary = user.identities[0]
+	Global.player_identity = identity
 	print("Got player identities: ", identity)
 	var text_code = identity.linkingCode
 	print("Got app link code: ", text_code)
-	emit_signal("text_code_fetched", text_code)
+	
+	if text_code:
+		emit_signal("text_code_fetched", text_code)
+	
 	var qr_code_url = identity.linkingCodeQr
 	
 	#If there is nor qr code url means the user already has linked wallet
@@ -249,7 +274,6 @@ func _auth_app(udata: Dictionary):
 		auth_player(_client_name, _client_peer_id)
 	
 	print("App auth")
-	auth_player("Cofi", 1)
 
 
 func _auth_player(udata: Dictionary):
@@ -272,8 +296,10 @@ func _create_player(udata: Dictionary):
 
 	if gql.has_errors():
 		print("Errors: %s" % PoolStringArray(udata.gql.get_errors()).join(","))
+		print("Create player has failed")
 	elif gql.has_result():
 		# Authenticate the player.
+		print("Create player is successful")
 		auth_player(udata.name, udata.peer_id)
 
 
