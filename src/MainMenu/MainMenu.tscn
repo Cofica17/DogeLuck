@@ -4,75 +4,142 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
+hardcode_cofi = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.8877
+margin_left = -3.38599
 margin_top = -1.8877
-margin_right = -1.8877
+margin_right = -3.38599
 margin_bottom = -1.8877
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.29
 anchor_right = 0.5
 anchor_bottom = 0.29
-margin_left = -118.937
-margin_top = 290.816
-margin_right = 91.063
-margin_bottom = 367.816
+margin_left = -223.0
+margin_top = 560.8
+margin_right = 67.0
+margin_bottom = 646.8
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 1283.76
-margin_top = 437.634
-margin_right = 1528.76
-margin_bottom = 805.634
+[node name="SelectButton" type="Button" parent="."]
+margin_left = 719.93
+margin_top = 158.971
+margin_right = 893.93
+margin_bottom = 204.971
+text = "Select"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 245.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 20.0663
+margin_top = 188.805
+margin_right = 480.066
+margin_bottom = 499.805
+text = "Choose a username and press select.
+
+If not already you need to link the wallet first.
+
+Download the enjin wallet from app store.
+
+After creating a wallet choose a option from the menu called scan qr or you can also directly input app code.
+
+After the wallet is linked click button link.
+
+If wallet is already linked when you choose a username, no qr code or text code will show up and you will have an option to unlink your current wallet
+
+Once wallet is linked or already is you can press play and start the game
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+margin_left = 720.702
+margin_top = 40.0
+margin_right = 1206.7
+margin_bottom = 134.0
+custom_constants/separation = 26
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+margin_right = 486.0
 margin_bottom = 14.0
-text = "QR code"
+text = "Choose a username:"
+
+[node name="PlayerNameEditLine" type="LineEdit" parent="VBoxContainer3"]
+margin_top = 40.0
+margin_right = 486.0
+margin_bottom = 94.0
+size_flags_vertical = 3
+placeholder_text = "Enter a name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QrCode" type="TextureRect" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 245.0
-margin_bottom = 18.0
+[node name="UnlinkButton" type="Button" parent="."]
+margin_left = 725.703
+margin_top = 233.43
+margin_right = 885.703
+margin_bottom = 293.43
+rect_min_size = Vector2( 160, 60 )
+size_flags_horizontal = 4
+text = "Unlink"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 1584.06
-margin_top = 319.669
-margin_right = 1650.06
-margin_bottom = 360.669
+[node name="LinkVBC" type="VBoxContainer" parent="."]
+margin_left = 1311.42
+margin_top = 291.519
+margin_right = 1793.42
+margin_bottom = 947.519
+custom_constants/separation = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
-margin_right = 66.0
+[node name="LinkButton" type="Button" parent="LinkVBC"]
+margin_left = 161.0
+margin_right = 321.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 60 )
+size_flags_horizontal = 4
+text = "Link"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="LinkVBC"]
+margin_top = 100.0
+margin_right = 482.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LinkVBC/VBoxContainer2"]
+margin_right = 482.0
 margin_bottom = 14.0
 text = "Text code:"
 
-[node name="TextCode" type="Label" parent="VBoxContainer2"]
+[node name="TextCode" type="Label" parent="LinkVBC/VBoxContainer2"]
 margin_top = 18.0
-margin_right = 66.0
+margin_right = 482.0
 margin_bottom = 32.0
 align = 1
 valign = 1
@@ -80,32 +147,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerName" type="LineEdit" parent="."]
-margin_left = 771.628
-margin_top = 76.4137
-margin_right = 1117.63
-margin_bottom = 181.414
-placeholder_text = "Enter a name"
+[node name="VBoxContainer" type="VBoxContainer" parent="LinkVBC"]
+margin_top = 172.0
+margin_right = 482.0
+margin_bottom = 190.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Select" type="Button" parent="."]
-margin_left = 839.413
-margin_top = 214.602
-margin_right = 1064.41
-margin_bottom = 297.602
-text = "Select"
+[node name="Label" type="Label" parent="LinkVBC/VBoxContainer"]
+margin_right = 482.0
+margin_bottom = 14.0
+text = "QR code"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Unlink" type="Button" parent="."]
-margin_left = 1466.52
-margin_top = 126.134
-margin_right = 1685.52
-margin_bottom = 205.134
-text = "Unlink"
+[node name="QrCodeTextureRect" type="TextureRect" parent="LinkVBC/VBoxContainer"]
+margin_top = 18.0
+margin_right = 482.0
+margin_bottom = 18.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

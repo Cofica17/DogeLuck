@@ -2,6 +2,7 @@ extends Node
 
 signal text_code_fetched
 signal qr_code_fetched
+signal wallet_linked
 
 const DEFAULT_SETTINGS: Dictionary = {
 	"connection": {
@@ -205,7 +206,6 @@ func send_player_session(session, peer_id):
 
 
 func get_user_identities() -> void:
-	print("GLOBAL NAME: ", Global.player_name)
 	var input:GetUserInput = GetUserInput.new().name(Global.player_name)
 	input.user_i.with_identities(true)
 	input.identity_i.with_linking_code(true)
@@ -220,8 +220,6 @@ func _get_player_identities(udata:Dictionary) -> void:
 		print(gql.get_errors())
 		return
 	
-	print("Got player identities")
-	
 	var user: Dictionary = gql.get_result()
 	var identity: Dictionary = user.identities[0]
 	Global.player_identity = identity
@@ -234,9 +232,11 @@ func _get_player_identities(udata:Dictionary) -> void:
 	
 	var qr_code_url = identity.linkingCodeQr
 	
-	#If there is nor qr code url means the user already has linked wallet
+	#If there is no qr code url means the user already has linked wallet
 	if qr_code_url and not qr_code_url.empty():
 		download_and_show_qr_code(qr_code_url)
+	else:
+		emit_signal("wallet_linked")
 
 
 func download_and_show_qr_code(url: String):
